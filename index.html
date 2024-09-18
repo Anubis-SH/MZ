@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ Guild</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="top-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#join">Join Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <div class="language-selector">
+                <button onclick="changeLanguage('en')">EN</button>
+                <button onclick="changeLanguage('ar')">AR</button>
+                <button onclick="changeLanguage('ru')">RU</button>
+            </div>
+        </ul>
+    </div>
+<!-- زر القائمة الجانبية -->
+<div class="hamburger">&#9776;</div>
+
+    <!-- Home Page -->
+    <header class="hero-section">
+        <img src="logo.png" alt="Guild Logo" class="logo">
+        <h1>Welcome to MZ Guild</h1>
+        <p>Join one of the most powerful guilds in Lords Mobile!</p><br>
+            <a href="#join" class="btn">Join the Guild</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-buttons">
+            <button  onclick="showSection('about-us')">About Us</button>
+            <button onclick="showSection('rally-leaders')">Rally Leaders</button>
+        </div>
+
+        <div id="about-us">
+            <h2>About the Guild</h2>
+            <p>Welcome to MZ Guild, a top-tier Lords Mobile guild. We fight in the most challenging battles and take part in global events.</p>
+        </div>
+
+        <div id="rally-leaders" style="display: none;">
+            <h2>Top Rally Leaders</h2>
+            <div class="rally-leaders">
+                <h3>Leader 1</h3>
+                <img src="leader1.jpg" alt="Leader 1">
+                <h3>Leader 2</h3>
+                <img src="leader2.jpg" alt="Leader 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <h2>Guild News</h2>
+        <div class="news-box">
+            <marquee behavior="scroll" direction="left">Guild war starts tomorrow! Be prepared!</marquee>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+   <section id="highlights">
+        <h2>Guild Highlights</h2>
+        <div class="video-container">
+            <iframe src="video1.mp4" class="video"></iframe>
+            <iframe src="video2.mp4" class="video"></iframe>
+            <iframe src="video3.mp4" class="video"></iframe>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join">
+        <h2>Join Us</h2>
+        <form>
+             <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="t5">T5 Availability:</label>
+            <input type="checkbox" id="t5" name="t5"><br>
+
+            <label for="sigils">Sigils Availability (+ quantity):</label>
+            <input type="number" id="sigils" name="sigils" required><br>
+
+            <label for="kingdom">Furthest Kingdom:</label>
+            <input type="text" id="kingdom" name="kingdom" required><br>
+
+            <label for="events">Participate in Events:</label>
+            <input type="checkbox" id="events" name="events" required><br>
+
+            <label for="contact">Telegram/WhatsApp + Discord:</label>
+            <input type="text" id="contact" name="contact" required><br>
+
+            <label for="hall">Hall Capacity:</label>
+            <input type="number" id="hall" name="hall" required><br>
+
+            <label for="mixed_atk">Mixed ATK:</label>
+            <input type="text" id="mixed_atk" name="mixed_atk" required><br>
+
+            <label for="troops">Number of Troops and T5:</label>
+            <input type="text" id="troops" name="troops" required><br>
+
+            <label>
+                <input type="checkbox"> I agree to the terms and conditions
+            </label>
+            <button type="submit">Join Now</button>
+        </form>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries, reach out via our social media channels.</p>
+        <div class="social-icons">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <p>All rights reserved to MZ Guild</p>
+    </section>
+<!-- زر العودة إلى الأعلى -->
+<div id="back-to-top">↑</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

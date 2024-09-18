@@ -1,0 +1,277 @@
+/* إعداد الخلفية */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('battle_background.jpg'); /* تأكد من وجود الصورة */
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+/* إعدادات القائمة العلوية */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    z-index: 1000;
+}
+
+.top-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.top-nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.top-nav ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.top-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0px;
+    border-radius: 5px;
+}
+
+/* فصل قائمة اللغات عن القائمة الأساسية */
+.language-selector {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 1001; /* ز-index أعلى لفصلها عن القائمة */
+}
+
+.language-selector button {
+    background: #ffd700;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language-selector button:hover {
+    background: #ffdf00;
+}
+
+/* القائمة الجانبية للموبايل */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    color: #ffd700;
+}
+
+@media (max-width: 768px) {
+    .top-nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%; /* تمديد العرض ليغطي الشاشة بالكامل */
+        text-align: left;
+        padding: 20px 0;
+    }
+
+    .top-nav ul.show {
+        display: flex;
+      align-items: center; /* لتوسيط القائمة بالكامل في المنتصف */
+        padding: 0;
+    }
+
+    .top-nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* ضبط ز-index لأزرار اللغات ليبقى فوق القائمة */
+    .language-selector {
+        position: fixed;
+        top: 15px;
+        left: 0px;
+       right: 0px;
+                display: flex;
+        justify-content: center;
+        z-index: 1001;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* تنسيق الهيدر */
+header {
+    text-align: center;
+    padding: 150px 0 100px;
+    background: rgba(0, 0, 0, 0.7); /* خلفية شبه شفافة */
+}
+
+.hero-section .logo {
+    height: 300px; /* تغيير حجم اللوجو */
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    color: #ffd700; /* لون ذهبي */
+    font-size: 56px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000;
+}
+
+.hero-section p {
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 1px 1px 5px #000;
+}
+
+.hero-section .btn {
+    background-color: #ff4500;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 22px;
+    box-shadow: 2px 2px 10px #000;
+    transition: background-color 0.3s ease;
+}
+
+.hero-section .btn:hover {
+    background-color: #ff6347; /* تغيير اللون عند التمرير */
+}
+#about, #contact {
+    text-align: center;
+}
+section {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background: rgba(0, 0, 0, 0.8); /* خلفية شبه شفافة */
+    border-radius: 10px;
+}
+
+h2 {
+    color: #ffd700;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 2px 2px 8px #000;
+}
+
+}
+
+.news-box {
+    background-color: #333;
+    color: white;
+}
+
+marquee {
+    font-size: 1.2rem;
+}
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden; /* لإخفاء الجزء الذي يخرج عن الإطار */
+}
+
+.video-container iframe {
+    width: 30%;
+    height: 200px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%; /* الحفاظ على الفيديو داخل الإطار */
+}
+
+.video-container iframe:hover {
+    transform: scale(1.2);
+}
+/* تنسيق الفيديو */
+.video-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video {
+    width: 30%;
+    height: 200px;
+}
+
+/* تنسيق النموذج */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+}
+
+input[type="text"], input[type="number"], input[type="checkbox"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #ffd700;
+    color: #000;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #000;
+}
+
+button:hover {
+    background-color: #ffdf00;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 5px;
+}
+}
+
+.video-container iframe {
+    transition: transform 0.3s ease-in-out;
+}
+
+.video-container iframe:hover {
+    transform: scale(1.2);
+}
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffd700;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#back-to-top.show {
+    display: block;
+}
