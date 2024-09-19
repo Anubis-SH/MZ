@@ -76,6 +76,19 @@ body {
 }
 
 @media (max-width: 768px) {
+      .video-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .video-container iframe {
+        width: 100%; /* استخدام العرض الكامل */
+        max-width: 90vw; /* العرض لا يتجاوز 90% من عرض الشاشة */
+        height: calc(90vw * 9 / 16); /* الحفاظ على نسبة العرض إلى الارتفاع 16:9 */
+        border: none;
+    }
     .top-nav ul {
         display: none;
         flex-direction: column;
@@ -113,6 +126,7 @@ body {
     .hamburger {
         display: block;
     }
+
 }
 
 /* تنسيق الهيدر */
@@ -189,7 +203,7 @@ marquee {
 }
 
 .video-container iframe {
-    width: 30%;
+    width: 350px;
     height: 200px;
     transition: transform 0.3s ease-in-out;
     max-width: 100%; /* الحفاظ على الفيديو داخل الإطار */
