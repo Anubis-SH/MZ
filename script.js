@@ -79,3 +79,79 @@ window.addEventListener('scroll', function() {
 document.getElementById('back-to-top').addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+const leadersData = [
+    {
+        name: "PlatonUr",
+        champEquipment: "Full champ",
+        castleStars: 193,
+        artifact: {
+            blessed: 118,
+            totalStars: 854,
+            totalLevels: 1374
+        },
+        troopsKilled: "2.4b"
+    },
+    {
+        name: "roman19778",
+        champEquipment: "Full champ",
+        castleStars: 210,
+        artifact: {
+            blessed: 162,
+            totalStars: 884,
+            totalLevels: 1525
+        },
+        troopsKilled: "7.7b"
+    },
+    {
+        name: "maxus84",
+        champEquipment: "5 pieces",
+        castleStars: 148,
+        artifact: {
+            blessed: 39,
+            totalStars: 590,
+            totalLevels: 831
+        },
+        troopsKilled: "2.9b"
+    }
+];
+
+const delay = 1000; // Delay between each word
+let leaderIndex = 0;
+
+// Function to type the information for each leader
+function typeInfo(leader) {
+    const infoElements = {
+        name: document.querySelector(`#leader${leader + 1} .name`),
+        champEquipment: document.querySelector(`#leader${leader + 1} .champ-equipment`),
+        castleStars: document.querySelector(`#leader${leader + 1} .castle-stars`),
+        artifactBlessed: document.querySelector(`#leader${leader + 1} .artifact-blessed`),
+        artifactTotalStars: document.querySelector(`#leader${leader + 1} .artifact-total-stars`),
+        artifactTotalLevels: document.querySelector(`#leader${leader + 1} .artifact-total-levels`),
+        troopsKilled: document.querySelector(`#leader${leader + 1} .troops-killed`)
+    };
+
+    const textArray = [
+        `Name: ${leadersData[leader].name}`,
+        `Champ Equipment: ${leadersData[leader].champEquipment}`,
+        `Castle Stars: ${leadersData[leader].castleStars}`,
+        `Artifact (Blessed: ${leadersData[leader].artifact.blessed}, Total Stars: ${leadersData[leader].artifact.totalStars}, Total Levels: ${leadersData[leader].artifact.totalLevels})`,
+        `Troops Killed: ${leadersData[leader].troopsKilled}`
+    ];
+
+    textArray.forEach((text, index) => {
+        setTimeout(() => {
+            infoElements[Object.keys(infoElements)[index]].textContent = text;
+            infoElements[Object.keys(infoElements)[index]].style.opacity = 1; // Fade in effect
+        }, index * delay);
+    });
+
+    setTimeout(() => {
+        leaderIndex++;
+        if (leaderIndex < leadersData.length) {
+            typeInfo(leaderIndex); // Call the next leader's info
+        }
+    }, textArray.length * delay + 3000); // Delay before the next leader
+}
+
+// Start typing the information
+typeInfo(leaderIndex);
