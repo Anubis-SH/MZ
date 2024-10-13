@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forum</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #212529; /* Dark background */
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* White text color */
+        }
+
+        .forum-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #343a40; /* Darker panel */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .forum-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #ffcc00; /* Gold color for title */
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .home-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff; /* Green button */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #ffcc00;
+        }
+
+        .discussion {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #495057; /* Dark gray for discussions */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .discussion:hover {
+            background: #6c757d; /* Slightly lighter on hover */
+        }
+
+        .discussion-header h2 {
+            font-size: 1.8em;
+            margin: 0;
+            color: #ffcc00; /* Gold color */
+        }
+
+        .author {
+            color: #adb5bd; /* Light gray for author */
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .discussion-content {
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .discussion-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .comments-section {
+            border-top: 2px solid #ffcc00; /* Gold border */
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #495057; /* Dark gray for comments */
+            border-radius: 10px;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .comment:hover {
+            background-color: #6c757d; /* Slightly lighter on hover */
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #ffcc00; /* Gold for comment author */
+        }
+
+        .comment-actions {
+            margin-top: 10px;
+        }
+
+        .comment-actions button {
+            background-color: transparent;
+            color: #ffcc00; /* Gold color */
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .comment-actions button:hover {
+            background-color: rgba(255, 204, 0, 0.2); /* Light hover effect */
+        }
+
+        .replies {
+            margin-left: 20px;
+            margin-top: 10px;
+            border-left: 2px solid #ffcc00; /* Gold border for replies */
+            padding-left: 10px;
+        }
+
+        .new-comment {
+            margin-top: 20px;
+        }
+
+        .new-comment textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .new-comment textarea:focus {
+            border-color: #ffcc00; /* Gold focus border */
+        }
+
+        .new-comment button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .new-comment button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .new-discussion {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #495057; /* Dark gray for new discussion */
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .new-discussion textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .new-discussion input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .new-discussion button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .new-discussion button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .reaction-count {
+            font-size: 0.9em;
+            color: #adb5bd; /* Light gray */
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="forum-container">
+        <h1 class="forum-title">Discussion Forum</h1>
+        
+        <!-- Home Button -->
+        <a href="index.html" class="home-button">Back to Home</a>
+        
+        <!-- New Discussion Form -->
+        <div class="new-discussion">
+            <h3>Start a New Discussion</h3>
+            <textarea id="newDiscussionText" placeholder="What's on your mind?"></textarea>
+            <input type="file" id="discussionImage" accept="image/*" />
+            <button id="postDiscussion">Post Discussion</button>
+        </div>
+
+        <!-- Example Discussion Posts -->
+        <div id="discussionList">
+            <div class="discussion" data-discussion-id="1">
+                <div class="discussion-header">
+                    <h2>Discussion: What do you think about the new Lords Mobile update?</h2>
+                    <span class="author">By: GamerX</span>
+                </div>
+                <p class="discussion-content">The new features are amazing! How do you feel about them?</p>
+                <img src="https://img1.igg.com/1051/029902/news/2018/08/29/230101_6535.jpg" class="discussion-image" alt="Discussion Image">
+                
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <div class="comment" data-comment-id="1">
+                        <span class="comment-author">Sara</span>
+                        <p>I love the new characters! They add a lot of fun to the game.</p>
+                        <div class="comment-actions">
+                            <button class="like"><span>Awesome</span></button><span class="reaction-count">0</span>
+                            <button class="dislike"><span>Not Great</span></button><span class="reaction-count">0</span>
+                            <button class="reply">Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Comment Form -->
+                <div class="new-comment">
+                    <textarea placeholder="Write your comment here..."></textarea>
+                    <button class="submit-comment">Post Comment</button>
+                </div>
+            </div>
+
+            <div class="discussion" data-discussion-id="2">
+                <div class="discussion-header">
+                    <h2>Discussion: Strategies for MZ Guild</h2>
+                    <span class="author">By: LordKhalid</span>
+                </div>
+                <p class="discussion-content">What are the best strategies for success in the game as part of MZ guild?</p>
+                <img src="https://agg-wordpress.umlife.com/blog/wp-content/uploads/2023/06/d52595ee-1bae-3d44-6ebb-ebf065359130.png" class="discussion-image" alt="Discussion Image">
+                
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <div class="comment" data-comment-id="2">
+                        <span class="comment-author">Ali</span>
+                        <p>I think teamwork is key! We need to coordinate our attacks.</p>
+                        <div class="comment-actions">
+                            <button class="like"><span>Awesome</span></button><span class="reaction-count">0</span>
+                            <button class="dislike"><span>Not Great</span></button><span class="reaction-count">0</span>
+                            <button class="reply">Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Comment Form -->
+                <div class="new-comment">
+                    <textarea placeholder="Write your comment here..."></textarea>
+                    <button class="submit-comment">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+// JavaScript for functionality
+document.getElementById("postDiscussion").addEventListener("click", function () {
+    const discussionText = document.getElementById("newDiscussionText").value;
+    const discussionImage = document.getElementById("discussionImage").files[0];
+
+    if (discussionText.trim() === "") {
+        alert("Please enter a discussion topic.");
+        return;
+    }
+
+    const newDiscussion = document.createElement("div");
+    newDiscussion.classList.add("discussion");
+    newDiscussion.innerHTML = `
+        <div class="discussion-header">
+            <h2>${discussionText}</h2>
+            <span class="author">By: You</span>
+        </div>
+        <p class="discussion-content"></p>
+        ${discussionImage ? `<img src="${URL.createObjectURL(discussionImage)}" class="discussion-image" alt="Discussion Image">` : ""}
+        <div class="comments-section"></div>
+        <div class="new-comment">
+            <textarea placeholder="Write your comment here..."></textarea>
+            <button class="submit-comment">Post Comment</button>
+        </div>
+    `;
+    document.getElementById("discussionList").prepend(newDiscussion);
+    document.getElementById("newDiscussionText").value = "";
+    document.getElementById("discussionImage").value = "";
+
+    // Attach event listener to the new comment button
+    attachCommentButtonListener(newDiscussion.querySelector('.submit-comment'));
+});
+
+// Function to attach comment button listener
+function attachCommentButtonListener(button) {
+    button.addEventListener('click', function () {
+        const commentText = this.previousElementSibling.value;
+        if (commentText.trim() === "") {
+            alert("Please enter a comment.");
+            return;
+        }
+
+        const commentDiv = document.createElement("div");
+        commentDiv.classList.add("comment");
+        commentDiv.innerHTML = `
+            <span class="comment-author">You</span>
+            <p>${commentText}</p>
+            <div class="comment-actions">
+                <button class="like"><span>Awesome</span></button><span class="reaction-count">0</span>
+                <button class="dislike"><span>Not Great</span></button><span class="reaction-count">0</span>
+                <button class="reply">Reply</button>
+            </div>
+        `;
+        this.parentElement.previousElementSibling.appendChild(commentDiv);
+        this.previousElementSibling.value = "";
+
+        // Attach event listeners for the new comment buttons
+        attachLikeDislikeListeners(commentDiv);
+    });
+}
+
+// Attach event listeners to the existing buttons in discussions
+document.querySelectorAll('.submit-comment').forEach(button => {
+    attachCommentButtonListener(button);
+});
+
+// Function to attach like and dislike event listeners
+function attachLikeDislikeListeners(commentDiv) {
+    const likeButton = commentDiv.querySelector('.like');
+    const dislikeButton = commentDiv.querySelector('.dislike');
+    const likeCountSpan = likeButton.nextElementSibling;
+    const dislikeCountSpan = dislikeButton.nextElementSibling;
+
+    likeButton.addEventListener('click', function () {
+        let count = parseInt(likeCountSpan.innerText);
+        likeCountSpan.innerText = count + 1;
+    });
+
+    dislikeButton.addEventListener('click', function () {
+        let count = parseInt(dislikeCountSpan.innerText);
+        dislikeCountSpan.innerText = count + 1;
+    });
+}
+
+// Attach like/dislike listeners to existing comments
+document.querySelectorAll('.discussion .comment').forEach(comment => {
+    attachLikeDislikeListeners(comment);
+});
+
+    </script>
+</body>
+</html>
