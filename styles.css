@@ -74,6 +74,83 @@ body {
     font-size: 30px;
     color: #ffd700;
 }
+.top-rally-leaders {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f4f8; /* Light background color */
+}
+
+.leader {
+    display: flex;
+    height: 170px;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.leader:hover {
+    transform: scale(1.05);
+}
+
+.leader-image {
+    flex: 1;
+    padding: 10px;
+}
+
+.leader-image img {
+    border-radius: 50%;
+    border: 4px solid #ffd700; /* Border color matching the theme */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.leader-info {
+    flex: 2;
+    padding: 10px;
+    text-align: left;
+}
+
+.info {
+    font-family: 'Acme', sans-serif;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-shadow: 
+        -0.5px -0.5px 0 black, /* الجهة العلوية اليسرى */
+        0.5px -0.5px 0 black,  /* الجهة العلوية اليمنى */
+        -0.5px 0.5px 0 black,  /* الجهة السفلية اليسرى */
+        0.5px 0.5px 0 black;   /* الجهة السفلية اليمنى */
+    transition: transform 0.5s ease; /* حركة سلسة */}
+
+.name {
+    color: #ffd700; /* Sky blue color for names */
+    font-weight: bold;
+}
+
+.champ-equipment, .castle-stars, .artifact-blessed, .artifact-total-stars, .artifact-total-levels, .troops-killed {
+    display: block;
+    margin: 5px 0;
+    opacity: 0; /* Initially hidden for typing effect */
+    transition: opacity 0.8s ease-in-out; /* Slower transition for typing effect */
+}
+.champ-equipment {
+    color: white; /* Sky blue color for names */
+}
+.castle-stars {
+    color: white; /* Sky blue color for names */
+}
+.artifact-blessed {
+    color: white; /* Sky blue color for names */
+}
+.troops-killed {
+    color: #ff4500; /* Sky blue color for names */
+}
+
+
 
 @media (max-width: 768px) {
       .video-container {
@@ -125,6 +202,10 @@ body {
 
     .hamburger {
         display: block;
+          position: fixed;
+  top: 20px; /* تعديل المسافة من الأعلى حسب الحاجة */
+  right: 20px; /* تعديل المسافة من اليمين حسب الحاجة */
+                z-index: 9999;
     }
 
 }
@@ -278,10 +359,10 @@ button:hover {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffd700;
+    background-color: rgba(255, 215, 0, 0.4);
+    color: #ffffff;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 10%;
     cursor: pointer;
     font-size: 20px;
 }
